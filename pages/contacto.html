@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Bloque Ciudadano Mexicalense</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <script type="module" src="../js/components.js"></script>
+</head>
+<body>
+
+  <app-navbar is-subpage></app-navbar>
+
+  <main style="min-height: 70vh; display: flex; align-items: center; justify-content: center; background-color: var(--color-bg-light);">
+    <section class="container text-center" style="padding: 4rem 1rem;">
+      <h1 style="font-size: 3rem; letter-spacing: -1px;">Contacto</h1>
+      <p style="margin-bottom: 3rem; font-size: 1.2rem;">Para cualquier duda, puedes comunicarte de manera directa con nuestros coordinadores:</p>
+      
+      <div style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 400px; margin: 0 auto;">
+        <!-- Card Marcela -->
+        <div style="padding: 2rem; background: #FFF; border-radius: 12px; border: 1px solid var(--color-secondary); box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+          <p style="margin: 0; font-weight: 600; color: var(--color-text-dark); font-size: 1.3rem;">Marcela Cubillas</p>
+          <a href="tel:6862165671" style="color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 1.2rem; display: inline-block; margin-top: 0.5rem; transition: all 0.2s;">📞 686 216 5671</a>
+        </div>
+        
+        <!-- Card Adrián -->
+        <div style="padding: 2rem; background: #FFF; border-radius: 12px; border: 1px solid var(--color-secondary); box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+          <p style="margin: 0; font-weight: 600; color: var(--color-text-dark); font-size: 1.3rem;">Adrián Cárdenas</p>
+          <a href="tel:6861982014" style="color: var(--color-accent); font-weight: 600; text-decoration: none; font-size: 1.2rem; display: inline-block; margin-top: 0.5rem; transition: all 0.2s;">📞 686 198 2014</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <app-footer></app-footer>
+
+</body>
+</html>

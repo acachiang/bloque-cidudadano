@@ -74,12 +74,12 @@
     <div class="spacer"></div>
 
     <!-- FORMULARIO REGISTRO -->
-    <section class="container">
+    <section id="registro" class="container">
       <div class="card" style="max-width: 600px;">
         <h2 class="text-center" style="margin-bottom: 0.5rem;">Regístrate para asistir</h2>
         <p class="text-center" style="margin-bottom: 2rem;">Asegura tu lugar en nuestra próxima reunión</p>
         
-        <form action="https://script.google.com/macros/s/AKfycbzaaZAtEjBID88ZsGJTFNTYRCnkMXAIk7_XdhCHYcvsq-Zih7s_VeKC6Qd6PewIOWtz/exec" method="POST" id="registro-form">
+        <form id="miFormulario">
           <div class="form-group">
             <label for="nombre">Nombre</label>
             <input type="text" id="nombre" name="nombre" class="form-control" required placeholder="Tu nombre">
@@ -87,18 +87,18 @@
           
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
             <div class="form-group" style="margin-bottom: 0;">
-              <label for="apaterno">Apellido Paterno</label>
-              <input type="text" id="apaterno" name="apaterno" class="form-control" required placeholder="Apellido Paterno">
+              <label for="apellidoPaterno">Apellido Paterno</label>
+              <input type="text" id="apellidoPaterno" name="apellidoPaterno" class="form-control" required placeholder="Apellido Paterno">
             </div>
             <div class="form-group" style="margin-bottom: 0;">
-              <label for="amaterno">Apellido Materno</label>
-              <input type="text" id="amaterno" name="amaterno" class="form-control" placeholder="Apellido Materno">
+              <label for="apellidoMaterno">Apellido Materno</label>
+              <input type="text" id="apellidoMaterno" name="apellidoMaterno" class="form-control" required placeholder="Apellido Materno">
             </div>
           </div>
 
           <div class="form-group">
-            <label for="numero">Número telefónico</label>
-            <input type="tel" id="numero" name="numero" class="form-control" required placeholder="Tu número de celular">
+            <label for="movil">Número telefónico (Móvil)</label>
+            <input type="tel" id="movil" name="movil" class="form-control" required placeholder="Tu número de celular">
           </div>
 
           <div class="form-group">
@@ -108,11 +108,69 @@
 
           <div class="form-group">
             <label for="organizacion">Organización</label>
-            <input type="text" id="organizacion" name="organizacion" class="form-control" placeholder="Empresa o institución (opcional)">
+            <input type="text" id="organizacion" name="organizacion" class="form-control" required placeholder="Empresa o institución">
           </div>
 
-          <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">Enviar registro</button>
+          <button type="submit" id="btnSubmit" class="btn" style="width: 100%; margin-top: 1rem;">Enviar registro</button>
+          
+          <div id="form-message" style="margin-top: 15px; padding: 10px; border-radius: 4px; display: none; text-align: center; font-weight: 500;"></div>
         </form>
+
+        <script>
+          document.getElementById('miFormulario').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const btnSubmit = document.getElementById('btnSubmit');
+            const messageDiv = document.getElementById('form-message');
+            const form = e.target;
+            
+            btnSubmit.disabled = true;
+            btnSubmit.textContent = 'Enviando...';
+            btnSubmit.style.backgroundColor = '#ccc';
+            btnSubmit.style.cursor = 'not-allowed';
+            messageDiv.style.display = 'none';
+            
+            const datos = {
+              nombre: document.getElementById('nombre').value,
+              apellidoPaterno: document.getElementById('apellidoPaterno').value,
+              apellidoMaterno: document.getElementById('apellidoMaterno').value,
+              correo: document.getElementById('correo').value,
+              movil: document.getElementById('movil').value,
+              organizacion: document.getElementById('organizacion').value
+            };
+            
+            try {
+              const response = await fetch('https://script.google.com/macros/s/AKfycbyC8TOucXNB-hWlFiTuuj35FiHjwPw7OTXpbGMayvypRXMT0xamWPwFFc9sl0WNpAcd/exec', {
+                method: 'POST',
+                body: JSON.stringify(datos)
+              });
+              
+              if (response.ok) {
+                messageDiv.textContent = '✅ Datos guardados en Google Sheet';
+                messageDiv.style.backgroundColor = '#d4edda';
+                messageDiv.style.color = '#155724';
+                messageDiv.style.display = 'block';
+                form.reset();
+              } else {
+                messageDiv.textContent = '❌ Error al guardar los datos';
+                messageDiv.style.backgroundColor = '#f8d7da';
+                messageDiv.style.color = '#721c24';
+                messageDiv.style.display = 'block';
+              }
+            } catch (error) {
+              console.error('Error:', error);
+              messageDiv.textContent = '❌ Error de conexión';
+              messageDiv.style.backgroundColor = '#f8d7da';
+              messageDiv.style.color = '#721c24';
+              messageDiv.style.display = 'block';
+            } finally {
+              btnSubmit.disabled = false;
+              btnSubmit.textContent = 'Enviar registro';
+              btnSubmit.style.backgroundColor = 'var(--color-accent)';
+              btnSubmit.style.cursor = 'pointer';
+            }
+          });
+        </script>
       </div>
     </section>
 

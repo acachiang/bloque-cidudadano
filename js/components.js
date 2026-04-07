@@ -1,19 +1,15 @@
 class AppNavbar extends HTMLElement {
   connectedCallback() {
-    const isSubpage = this.hasAttribute('is-subpage');
-    const indexLink = isSubpage ? '../index.html' : 'index.html';
-    const pagesPrefix = isSubpage ? './' : 'pages/';
-    
     this.innerHTML = `
-      <header>
-        <div class="container navbar-container" style="padding: 1.5rem 0;">
-          <a href="${indexLink}" class="nav-brand">BLOQUE CIUDADANO</a>
+      <header style="position: sticky; top: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(5px); z-index: 1000; border-bottom: 1px solid var(--color-secondary); padding: 0 1rem;">
+        <div class="container navbar-container" style="padding: 1.25rem 0;">
+          <a href="#" class="nav-brand">BLOQUE CIUDADANO</a>
           <button class="menu-toggle" id="mobile-menu-btn">☰</button>
           <nav class="nav-links" id="nav-links">
-            <a href="${indexLink}">Inicio</a>
-            <a href="${pagesPrefix}informacion.html">Sobre Nosotros</a>
-            <a href="${pagesPrefix}eventos.html">Eventos</a>
-            <a href="${pagesPrefix}contacto.html">Contacto</a>
+            <a href="#informacion">Acerca</a>
+            <a href="#eventos">Eventos</a>
+            <a href="#registro">Registro</a>
+            <a href="#contacto">Contacto</a>
           </nav>
         </div>
       </header>

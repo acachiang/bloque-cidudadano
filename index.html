@@ -208,11 +208,9 @@
 
     /* ── Hero ── */
     #hero {
-      min-height: 100dvh;
       display: flex;
       align-items: center;
-      padding-top: var(--nav-h);
-      background: linear-gradient(135deg, #ffffff 0%, #f4f6f8 100%);
+      background: linear-gradient(135deg, #f4f6f8 0%, #e8ecf0 100%);
       position: relative;
       overflow: hidden;
     }
@@ -683,86 +681,23 @@
 
   <main>
 
-    <!-- ── 1. Hero ── -->
-    <section id="hero">
-      <div class="container hero-inner">
-        <div class="hero-eyebrow">Mexicali, Baja California</div>
-
-        <h1>Bloque Ciudadano<br /><em>Mexicalense</em></h1>
-
-        <p class="hero-sub">Ciudadanos organizados por un Mexicali más próspero</p>
-
-        <div class="btn-group">
-          <a href="#registro" class="btn btn-primary">Registrarme</a>
-        </div>
-
-        <div class="hero-scroll">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9" />
-          </svg>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── 3. QR ── -->
-    <section id="qr" class="section section--alt">
+    <!-- ── 1. Registro (PRIMERO) ── -->
+    <section id="registro" class="section" style="padding-top: calc(var(--nav-h) + 3rem);">
       <div class="container fade-up">
-        <span class="tag">Comunidad</span>
-        <h2>Más información, presentaciones<br />y noticias</h2>
 
-        <div class="qr-frame">
-          <img src="qr_bloque_watts.png" alt="Código QR para unirse a WhatsApp del Bloque Ciudadano Mexicalense" />
+        <!-- Imagen del evento arriba del formulario -->
+        <div
+          style="max-width:640px;margin-inline:auto;margin-bottom:2rem;border-radius:20px;overflow:hidden;box-shadow:0 4px 40px rgba(0,0,0,.12);">
+          <img src="octavio_bloque_nuevo.jpeg" alt="Octavio Sandoval — Reunión Bloque Ciudadano Mexicalense"
+            style="width:100%;height:auto;display:block;" />
         </div>
 
-        <p class="qr-caption">Únete a nuestra comunidad de WhatsApp para mantenerte informado</p>
-      </div>
-    </section>
-
-    <!-- ── 4. Evento ── -->
-    <section id="evento" class="section">
-      <div class="container fade-up">
-        <span class="tag">Próxima reunión</span>
-        <h2>Te invitamos a participar</h2>
-
-        <div class="card">
-          <img class="card-img" src="octavio_bloque_nuevo.jpeg"
-            alt="Octavio Sandoval — Reunión Bloque Ciudadano Mexicalense" />
-
-          <div class="card-body">
-            <h3>Transparencia y Rendición de Cuentas del Congreso de Baja California</h3>
-
-            <ul class="event-details">
-              <li>
-                <span class="icon">🎙️</span>
-                <span><strong>Octavio Sandoval</strong><br />Presidente CCE Baja California</span>
-              </li>
-              <li>
-                <span class="icon">📍</span>
-                <span>Sala Gustavo Vildósola, CETYS Universidad</span>
-              </li>
-              <li>
-                <span class="icon">📅</span>
-                <span>16 de abril de 2026</span>
-              </li>
-              <li>
-                <span class="icon">🕒</span>
-                <span>Registro 6:15 pm &nbsp;|&nbsp; Inicio 6:30 pm</span>
-              </li>
-            </ul>
-
-            <span class="badge-cupo">Cupo limitado</span>
-
-            <a href="#registro" class="btn btn-primary" style="margin-top:.5rem">Reservar mi lugar</a>
-          </div>
+        <div style="max-width:640px;margin-inline:auto;text-align:center;margin-bottom:2rem;">
+          <span class="tag">16 de Abril, 2026 &nbsp;·&nbsp; CETYS Universidad</span>
+          <h2>Regístrate para asistir</h2>
+          <p style="color:var(--text-sm);font-size:.97rem;">Transparencia y Rendición de Cuentas del Congreso de Baja
+            California &nbsp;·&nbsp; Cupo limitado</p>
         </div>
-      </div>
-    </section>
-
-    <!-- ── 5. Formulario ── -->
-    <section id="registro" class="section section--alt">
-      <div class="container fade-up">
-        <span class="tag">Regístrate</span>
-        <h2>Regístrate para asistir</h2>
 
         <div class="form-card">
           <form id="registroForm" novalidate>
@@ -811,7 +746,72 @@
       </div>
     </section>
 
-    <!-- ── 6. Contacto ── -->
+    <!-- ── 2. Hero ── -->
+    <section id="hero" class="section section--alt">
+      <div class="container hero-inner" style="min-height:auto;padding-block:0;">
+        <div class="hero-eyebrow">Mexicali, Baja California</div>
+
+        <h1>Bloque Ciudadano<br /><em>Mexicalense</em></h1>
+
+        <p class="hero-sub">Ciudadanos organizados por un Mexicali más próspero</p>
+      </div>
+    </section>
+
+    <!-- ── 3. QR ── -->
+    <section id="qr" class="section">
+      <div class="container fade-up">
+        <span class="tag">Comunidad</span>
+        <h2>Más información, presentaciones<br />y noticias</h2>
+
+        <div class="qr-frame">
+          <img src="qr_bloque_watts.png" alt="Código QR para unirse a WhatsApp del Bloque Ciudadano Mexicalense" />
+        </div>
+
+        <p class="qr-caption">Únete a nuestra comunidad de WhatsApp para mantenerte informado</p>
+      </div>
+    </section>
+
+    <!-- ── 4. Evento ── -->
+    <section id="evento" class="section section--alt">
+      <div class="container fade-up">
+        <span class="tag">Próxima reunión</span>
+        <h2>Te invitamos a participar</h2>
+
+        <div class="card">
+          <img class="card-img" src="octavio_bloque_nuevo.jpeg"
+            alt="Octavio Sandoval — Reunión Bloque Ciudadano Mexicalense" />
+
+          <div class="card-body">
+            <h3>Transparencia y Rendición de Cuentas del Congreso de Baja California</h3>
+
+            <ul class="event-details">
+              <li>
+                <span class="icon">🎙️</span>
+                <span><strong>Octavio Sandoval</strong><br />Presidente CCE Baja California</span>
+              </li>
+              <li>
+                <span class="icon">📍</span>
+                <span>Sala Gustavo Vildósola, CETYS Universidad</span>
+              </li>
+              <li>
+                <span class="icon">📅</span>
+                <span>16 de abril de 2026</span>
+              </li>
+              <li>
+                <span class="icon">🕒</span>
+                <span>Registro 6:15 pm &nbsp;|&nbsp; Inicio 6:30 pm</span>
+              </li>
+            </ul>
+
+            <span class="badge-cupo">Cupo limitado</span>
+
+            <a href="#registro" class="btn btn-primary" style="margin-top:.5rem">Reservar mi lugar</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 5. Contacto ── -->
     <section id="contacto" class="section">
       <div class="container fade-up">
         <span class="tag">Contacto</span>
@@ -902,26 +902,27 @@
       submitBtn.textContent = 'Enviando…';
 
       try {
-        const data = new FormData(form);
+        const ENDPOINT = 'https://script.google.com/macros/s/AKfycbw5__PSJP0wuDP-ASVX8NkzsVQyIeLBRm4yTzYI8BfiJ7qgO75d_3cinZftpFoDjpCnLw/exec';
 
-        /*
-         * Reemplaza la URL con tu endpoint real.
-         * Compatible con: Formspree, Make (Integromat), Zapier, n8n, Google Apps Script, etc.
-         */
-        const ENDPOINT = 'https://script.google.com/macros/s/AKfycbw9lhm6nGcAb4EOkEKkgTLuLjgU6z0mmyFh4lwwz4bubeQe62mLAPS3oZD31h2xv8I6bg/exec';
+        const datos = {
+          nombre: form['nombre'].value.trim(),
+          apellidoPaterno: form['apellidoPaterno'].value.trim(),
+          apellidoMaterno: form['apellidoMaterno'].value.trim(),
+          numero: form['numero'].value.trim(),
+          correo: form['correo'].value.trim(),
+          organizacion: form['organizacion'].value.trim(),
+        };
 
-        const res = await fetch(ENDPOINT, {
+        await fetch(ENDPOINT, {
           method: 'POST',
-          body: data,
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(datos),
         });
 
-        if (res.ok) {
-          formStatus.textContent = '¡Registro enviado! Nos vemos el 16 de abril.';
-          formStatus.className = 'form-status ok';
-          form.reset();
-        } else {
-          throw new Error(`HTTP ${res.status}`);
-        }
+        formStatus.textContent = '¡Registro enviado! Nos vemos el 16 de abril.';
+        formStatus.className = 'form-status ok';
+        form.reset();
       } catch (err) {
         formStatus.textContent = 'Ocurrió un error. Intenta de nuevo o escríbenos directamente.';
         formStatus.className = 'form-status error';
